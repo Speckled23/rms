@@ -80,7 +80,7 @@ class Tenant{
         }
   
         function fetch($id=0){
-          $sql = "SELECT * FROM faculty WHERE id = :id;";
+          $sql = "SELECT * FROM tenants WHERE id = :id;";
           $query=$this->db->connect()->prepare($sql);
           $query->bindParam(':id', $id);
           if($query->execute()){
@@ -90,7 +90,7 @@ class Tenant{
         }
       function show()
         {
-      $sql = "SELECT * FROM tenant;";
+      $sql = "SELECT * FROM tenants ;";
       $query = $this->db->connect()->prepare($sql);
       if($query->execute()){
         $data = $query->fetchAll();
@@ -98,5 +98,18 @@ class Tenant{
     return $data;
     }
   }
+
+  function delete($record_id){
+    $sql = "DELETE FROM tenants WHERE id = :id;";
+    $query=$this->db->connect()->prepare($sql);
+    $query->bindParam(':id', $record_id);
+    if($query->execute()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 ?>

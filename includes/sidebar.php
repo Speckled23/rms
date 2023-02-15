@@ -31,13 +31,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
+            <a class="nav-link" href="../lease/lease.php">
             <i class='bx bxs-key menu-icon' title="Leases"></i>
               <span class="menu-title">Lease</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
+            <a class="nav-link" href="../invoice/invoice.php">
             <i class='bx bxs-book-content menu-icon' title="Invoice"></i>
               <span class="menu-title">Invoice</span>
             </a>

@@ -49,14 +49,14 @@
       $emergency_contact_number = htmlentities($_POST['emergency_contact_number']);
     
       // check if tenant record exists
-      $check_tenant_query = "SELECT * FROM tenant WHERE id = '$id'";
+      $check_tenant_query = "SELECT * FROM tenants WHERE id = '$id'";
       $check_tenant_result = mysqli_query($conn, $check_tenant_query);
       $tenant = mysqli_fetch_assoc($check_tenant_result);
     
       if ($tenant) {
         // tenant record exists, perform update
-        $update_query = "UPDATE tenant SET 
-          tenant_id = '$id'
+        $update_query = "UPDATE tenants SET
+          tenant_id = '$id',
           first_name = '$first_name',
           last_name = '$last_name',
           email = '$email',
@@ -82,6 +82,7 @@
           emergency_contact_person = '$emergency_contact_person',
           emergency_contact_number = '$emergency_contact_number'
           WHERE id = $id";
+
           $update_result = mysqli_query($conn, $update_query);
 
           if ($update_result) {

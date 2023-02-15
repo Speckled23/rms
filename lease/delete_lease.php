@@ -6,10 +6,10 @@
     $id = $_GET['id'];
 
     // Prepare and execute the DELETE query
-    $sql = "DELETE FROM tenants WHERE id=$id";
+    $sql = "DELETE FROM lease WHERE id=$id";
     if (mysqli_query($conn, $sql)) {
         // Redirect to the tenant list page if the DELETE query was successful
-        header('location: tenants.php');
+        header('location: lease.php');
         exit;
     }
 }
