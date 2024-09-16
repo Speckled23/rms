@@ -1,16 +1,24 @@
+
 <?php
-  require_once '../includes/dbconfig.php';
 
+    require_once '../classes/tenants.class.php';
 
-  if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-    // Prepare and execute the DELETE query
-    $sql = "DELETE FROM tenant WHERE id=$id";
-    if (mysqli_query($conn, $sql)) {
-        // Redirect to the tenant list page if the DELETE query was successful
-        header('location: tenants.php');
-        exit;
+    //resume session here to fetch session values
+    session_start();
+    /*
+        if user is not login then redirect to login page,
+        this is to prevent users from accessing pages that requires
+        authentication such as the dashboard
+    */
+    if (!isset($_SESSION['logged-in'])){
+        header('location: ../login/login.php');
     }
-}
+    //if the above code is false then code and html below will be executed
+    $tenant = new Tenant;
+    if(isset($_GET['id'])){
+        if($tenant->tenant_delete($_GET['id'])){
+            //redirect user to tenant page after saving
+            header('location: tenants.php');
+        }
+    }
 ?>
